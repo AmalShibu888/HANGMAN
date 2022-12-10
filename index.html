@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hang man</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- heading -->
+    <h1>HANG MAN</h1>
+
+    <!-- body of the game -->
+    <div class="game_container">
+        <!-- svg for making the hanging man body -->
+        <svg height="250px" width="200" class="figure-container">
+            <!-- Rod -->
+            <line x1="60" y1="20" x2="140" y2="20" stroke ="black" stroke-width = "3"/>
+            <line x1="140" y1="20" x2="140" y2="50" stroke ="black" stroke-width = "3" />
+            <line x1="60" y1="20" x2="60" y2="230" stroke ="black" stroke-width = "3" />
+            <line x1="20" y1="230" x2="100" y2="230" stroke ="black" stroke-width = "3" />
+
+            <!-- Head -->
+            <circle cx="140" cy="70" r="20" class="figure-part" />
+            <!-- Body -->
+            <line x1="140" y1="90" x2="140" y2="150" class="figure-part" stroke ="black" stroke-width = "3"/>
+            <!-- Arms -->
+            <line x1="140" y1="120" x2="120" y2="100" class="figure-part" stroke ="black" stroke-width = "3"/>
+            <line x1="140" y1="120" x2="160" y2="100" class="figure-part"  stroke ="black" stroke-width = "3"/>
+            <!-- Legs -->
+            <line x1="140" y1="150" x2="120" y2="180" class="figure-part"  stroke ="black" stroke-width = "3"/>
+            <line x1="140" y1="150" x2="160" y2="180" class="figure-part"  stroke ="black" stroke-width = "3"/>
+        </svg>
+
+        <!-- the hidden word the user need to find  -->
+        <div class="word">
+            <span class="letter"></span>
+            <span class="letter"> </span>
+            <span class="letter"> </span>
+            <span class="letter"> </span>
+            <span class="letter"> </span>
+            <span class="letter"> </span>
+            <span class="letter"> </span>
+            <span class="letter"> </span>
+        </div>
+        
+        <!-- shows all letters that has been tried and turned out to be wrong -->
+        <div class="wrong words">
+            <h3>wrong letters</h4>
+            
+        </div>
+    </div>
+
+    <!-- popup which will appear once all the tries are complted -->
+    <!-- it should either show successfull or not successfull -->
+    <div class="popup">
+        <button class="popup-close">x</button>
+        <p></p>
+    </div>
+
+</body>
+</html>

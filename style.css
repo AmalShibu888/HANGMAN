@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    color: #eed;
+}
+
+
+/* background color */
+body{
+    background-image: linear-gradient( to right ,purple ,rgb(176, 59, 151));
+}
+
+/* aligning all headings to center */
+h1,h3{
+    text-align: center;
+}
+
+/* centering the contents of the game container */
+.game_container{
+    display: grid;
+    justify-content: center;
+    margin-top: 12vh;
+}
+
+/* adding border to hangman figure and the unknown word */
+.figure-container{
+     margin-bottom: 4vh ;
+}
+.word{
+    margin-bottom: 6vh ;
+}
+
+/* designing the slot for unknown word */
+.letter{
+    border-bottom: 3px solid white;
+    padding: 1rem;
+    box-sizing: border-box;
+    margin: 0  0.5rem 0 0.5rem;
+    
+}
+
+/* designoing popup menu */
+.popup{
+    height: 25vh;
+    width: 25vw;
+    position: absolute;
+    background-color: rgb(145, 51, 228);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% ,-50%);
+    border-radius: 5%;
+    border: 3px solid black;
+    display: none;
+    
+}
+.popup-close{
+    /* padding: 1rem; */
+    background-color: rgb(145, 51, 228);
+    margin-left: 95%;
+    /* border-radius: 50%; */
+    font-size: 1.2rem;
+    border: none;
+}
