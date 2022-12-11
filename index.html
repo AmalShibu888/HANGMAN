@@ -8,30 +8,69 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <p class="login-button">Login</p>
     <!-- heading -->
     <h1>HANG MAN</h1>
 
     <!-- body of the game -->
     <div class="game_container">
-        <!-- svg for making the hanging man body -->
-        <svg height="250px" width="200" class="figure-container">
-            <!-- Rod -->
-            <line x1="60" y1="20" x2="140" y2="20" stroke ="black" stroke-width = "3"/>
-            <line x1="140" y1="20" x2="140" y2="50" stroke ="black" stroke-width = "3" />
-            <line x1="60" y1="20" x2="60" y2="230" stroke ="black" stroke-width = "3" />
-            <line x1="20" y1="230" x2="100" y2="230" stroke ="black" stroke-width = "3" />
+        <div class="figure-keyboard">
+            <!-- svg for making the hanging man body -->
+            <svg height="250px" width="200" class="figure-container">
+                <!-- Rod -->
+                <line x1="60" y1="20" x2="140" y2="20" stroke ="black" stroke-width = "3"/>
+                <line x1="140" y1="20" x2="140" y2="50" stroke ="black" stroke-width = "3" />
+                <line x1="60" y1="20" x2="60" y2="230" stroke ="black" stroke-width = "3" />
+                <line x1="20" y1="230" x2="100" y2="230" stroke ="black" stroke-width = "3" />
 
-            <!-- Head -->
-            <circle cx="140" cy="70" r="20" class="figure-part" />
-            <!-- Body -->
-            <line x1="140" y1="90" x2="140" y2="150" class="figure-part" stroke ="black" stroke-width = "3"/>
-            <!-- Arms -->
-            <line x1="140" y1="120" x2="120" y2="100" class="figure-part" stroke ="black" stroke-width = "3"/>
-            <line x1="140" y1="120" x2="160" y2="100" class="figure-part"  stroke ="black" stroke-width = "3"/>
-            <!-- Legs -->
-            <line x1="140" y1="150" x2="120" y2="180" class="figure-part"  stroke ="black" stroke-width = "3"/>
-            <line x1="140" y1="150" x2="160" y2="180" class="figure-part"  stroke ="black" stroke-width = "3"/>
-        </svg>
+                <!-- Head -->
+                <circle cx="140" cy="70" r="20" class="figure-part" />
+                <!-- Body -->
+                <line x1="140" y1="90" x2="140" y2="150" class="figure-part" stroke ="black" stroke-width = "3"/>
+                <!-- Arms -->
+                <line x1="140" y1="120" x2="120" y2="100" class="figure-part" stroke ="black" stroke-width = "3"/>
+                <line x1="140" y1="120" x2="160" y2="100" class="figure-part"  stroke ="black" stroke-width = "3"/>
+                <!-- Legs -->
+                <line x1="140" y1="150" x2="120" y2="180" class="figure-part"  stroke ="black" stroke-width = "3"/>
+                <line x1="140" y1="150" x2="160" y2="180" class="figure-part"  stroke ="black" stroke-width = "3"/>
+            </svg>
+
+            <div class="keyboard">
+                <div class="row">
+                    <button>A</button>
+                    <button>B</button>
+                    <button>C</button>
+                    <button>D</button>
+                    <button>E</button>
+                    <button>F</button>
+                    <button>G</button>
+                    <button>H</button>
+                    <button>I</button>
+                </div>
+                <div class="row">
+                    <button>J</button>
+                    <button>K</button>
+                    <button>L</button>
+                    <button>M</button>
+                    <button>N</button>
+                    <button>O</button>
+                    <button>P</button>
+                    <button>Q</button>
+                </div>
+                <div class="row">
+                    <button>R</button>
+                    <button>S</button>
+                    <button>T</button>
+                    <button>U</button>
+                    <button>V</button>
+                    <button>W</button>
+                    <button>X</button>
+                    <button>Y</button>
+                    <button>Z</button>
+                </div>
+            </div>
+        </div>
 
         <!-- the hidden word the user need to find  -->
         <div class="word">
@@ -54,10 +93,19 @@
 
     <!-- popup which will appear once all the tries are complted -->
     <!-- it should either show successfull or not successfull -->
-    <div class="popup">
+    <!-- <div class="popup">
         <button class="popup-close">x</button>
         <p></p>
-    </div>
+    </div> -->
 
+    <div class="popup loginpop">
+        <button class="popup-close">x</button>
+        <span>Username : </span>
+        
+        <input type="text" name="username" id="">
+        <br>
+        <span>password : </span>
+        <input type="password" name="" id="">
+    </div>
 </body>
 </html>

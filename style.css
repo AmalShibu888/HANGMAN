@@ -4,6 +4,11 @@
     color: #eed;
 }
 
+.login-button{
+    text-align: right;
+    margin-right: 2px;
+    cursor: pointer;
+}
 
 /* background color */
 body{
@@ -23,12 +28,52 @@ h1,h3{
 }
 
 /* adding border to hangman figure and the unknown word */
+.figure-keyboard{
+     margin-bottom: 15vh ;
+     display: flex;
+     /* background-color: antiquewhite; */
+}
+
 .figure-container{
-     margin-bottom: 4vh ;
+    margin-right:150px ;
+}
+
+.keyboard{
+    background-color: rgb(216, 151, 199);
+    padding: 10px;
+    border-radius: 10px;
+    border: 3px solid black;
+}
+
+.keyboard button{
+    width: 5.5rem;
+    height: 5.5rem;
+    color: black;
+    font-size: large;
+    background-color: yellow;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.keyboard button:hover{
+    opacity: 0.5;
+    background-color: rgb(218, 236, 22);
+    color: black;
+    /* background-color: blue; */
+}
+
+.row{
+    text-align: center;
 }
 .word{
+    text-align: center;
     margin-bottom: 6vh ;
 }
+
+
+
+
 
 /* designing the slot for unknown word */
 .letter{
@@ -60,4 +105,13 @@ h1,h3{
     /* border-radius: 50%; */
     font-size: 1.2rem;
     border: none;
+}
+
+.loginpop{
+    width: 40vw;
+   text-align: center;
+}
+
+.loginpop input{
+    margin: 20px;
 }
