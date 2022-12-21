@@ -36,6 +36,11 @@ h1,h3{
 
 .figure-container{
     margin-right:150px ;
+    /* display: none; */
+}
+.figure-part{
+    r : 0;
+    stroke-width: 0;
 }
 
 
@@ -47,7 +52,7 @@ h1,h3{
     border: 3px solid black;
 }
 
-.keyboard button{
+.alphaKeys{
     width: 5.5rem;
     height: 5.5rem;
     color: black;
@@ -57,13 +62,29 @@ h1,h3{
     cursor: pointer;
     border-radius: 5px;
 }
-
-.keyboard button:hover{
+.alphaKeys:hover{
     opacity: 0.5;
-    background-color: rgb(218, 236, 22);
     color: black;
+    /* background-color: rgb(218, 236, 22); */
+    /* color: black; */
     /* background-color: blue; */
 }
+.wrongLetter{
+    background-color: red;
+    color: white;
+}
+
+.wrongLetterList{
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+.rightLetter{
+    background-color: green;
+    color: white;
+}
+
 
 .row{
     text-align: center;
@@ -78,14 +99,24 @@ h1,h3{
 
 
 /* designing the slot for unknown word */
+
 .letter{
     border-bottom: 3px solid white;
     padding: 1rem;
     box-sizing: border-box;
     margin: 0  0.5rem 0 0.5rem;
-    
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-display: 0; */
+    /* visibility: hidden; */
 }
 
+
+.word .space{
+    border: none;
+    
+}
 /* designoing popup menu */
 .popup{
     height: 25vh;

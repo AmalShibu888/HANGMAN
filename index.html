@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hang man</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
 
@@ -25,69 +26,69 @@
                 <line x1="20" y1="230" x2="100" y2="230" stroke ="black" stroke-width = "3" />
 
                 <!-- Head -->
-                <circle cx="140" cy="70" r="20" class="figure-part" />
+                <circle cx="140" cy="70" r="20" class="try1 figure-part" />
                 <!-- Body -->
-                <line x1="140" y1="90" x2="140" y2="150" class="figure-part" stroke ="black" stroke-width = "3"/>
+                <line x1="140" y1="90" x2="140" y2="150" class="try2 figure-part" stroke ="black" stroke-width = "3"/>
                 <!-- Arms -->
-                <line x1="140" y1="120" x2="120" y2="100" class="figure-part" stroke ="black" stroke-width = "3"/>
-                <line x1="140" y1="120" x2="160" y2="100" class="figure-part"  stroke ="black" stroke-width = "3"/>
+                <line x1="140" y1="120" x2="120" y2="100" class="try3 figure-part" stroke ="black" stroke-width = "3"/>
+                <line x1="140" y1="120" x2="160" y2="100" class="try4 figure-part"  stroke ="black" stroke-width = "3"/>
                 <!-- Legs -->
-                <line x1="140" y1="150" x2="120" y2="180" class="figure-part"  stroke ="black" stroke-width = "3"/>
-                <line x1="140" y1="150" x2="160" y2="180" class="figure-part"  stroke ="black" stroke-width = "3"/>
+                <line x1="140" y1="150" x2="120" y2="180" class="try5 figure-part"  stroke ="black" stroke-width = "3"/>
+                <line x1="140" y1="150" x2="160" y2="180" class="try6 figure-part"  stroke ="black" stroke-width = "3"/>
             </svg>
             <!-- keyboard of all alphabets -->
             <div class="keyboard">
                 <div class="row">
-                    <button>A</button>
-                    <button>B</button>
-                    <button>C</button>
-                    <button>D</button>
-                    <button>E</button>
-                    <button>F</button>
-                    <button>G</button>
-                    <button>H</button>
-                    <button>I</button>
+                    <button class="alphaKeys a">A</button>
+                    <button class="alphaKeys b">B</button>
+                    <button class="alphaKeys c">C</button>
+                    <button class="alphaKeys d">D</button>
+                    <button class="alphaKeys e">E</button>
+                    <button class="alphaKeys f">F</button>
+                    <button class="alphaKeys g">G</button>
+                    <button class="alphaKeys h">H</button>
+                    <button class="alphaKeys i">I</button>
                 </div>
                 <div class="row">
-                    <button>J</button>
-                    <button>K</button>
-                    <button>L</button>
-                    <button>M</button>
-                    <button>N</button>
-                    <button>O</button>
-                    <button>P</button>
-                    <button>Q</button>
+                    <button class="alphaKeys j">J</button>
+                    <button class="alphaKeys k">K</button>
+                    <button class="alphaKeys l">L</button>
+                    <button class="alphaKeys m">M</button>
+                    <button class="alphaKeys n">N</button>
+                    <button class="alphaKeys o">O</button>
+                    <button class="alphaKeys p">P</button>
+                    <button class="alphaKeys q">Q</button>
                 </div>
                 <div class="row">
-                    <button>R</button>
-                    <button>S</button>
-                    <button>T</button>
-                    <button>U</button>
-                    <button>V</button>
-                    <button>W</button>
-                    <button>X</button>
-                    <button>Y</button>
-                    <button>Z</button>
+                    <button class="alphaKeys r">R</button>
+                    <button class="alphaKeys s">S</button>
+                    <button class="alphaKeys t">T</button>
+                    <button class="alphaKeys u">U</button>
+                    <button class="alphaKeys v">V</button>
+                    <button class="alphaKeys w">W</button>
+                    <button class="alphaKeys x">X</button>
+                    <button class="alphaKeys y">Y</button>
+                    <button class="alphaKeys z">Z</button>
                 </div>
             </div>
         </div>
 
         <!-- the hidden word the user need to find  -->
         <div class="word">
-            <span class="letter"></span>
+            <!-- <span class="letter"></span> -->
+            <!-- <span class="letter"> </span>
             <span class="letter"> </span>
             <span class="letter"> </span>
             <span class="letter"> </span>
             <span class="letter"> </span>
             <span class="letter"> </span>
-            <span class="letter"> </span>
-            <span class="letter"> </span>
+            <span class="letter"> </span> -->
         </div>
         
         <!-- shows all letters that has been tried and turned out to be wrong -->
         <div class="wrong words">
             <h3>wrong letters</h4>
-            
+            <p class="wrongLetterList"></p>
         </div>
     </div>
 
@@ -103,10 +104,11 @@
         <button class="popup-close">x</button>
         <span>Username : </span>
         
-        <input type="text" name="username" id="">
+        <input type="text" name="username" id="userName">
         <br>
         <span>password : </span>
-        <input type="password" name="" id="">
+        <input type="password" name="" id="password">
     </div>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
