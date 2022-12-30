@@ -9,8 +9,9 @@
     
 </head>
 <body>
-
-    <p class="login-button">Login</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <p class="loginSignup-button"> <span class="login-button">Login</span> / <span class="signup-button">Signup</span></p>
+    
     <!-- heading -->
     <h1>HANG MAN</h1>
 
@@ -75,14 +76,7 @@
 
         <!-- the hidden word the user need to find  -->
         <div class="word">
-            <!-- <span class="letter"></span> -->
-            <!-- <span class="letter"> </span>
-            <span class="letter"> </span>
-            <span class="letter"> </span>
-            <span class="letter"> </span>
-            <span class="letter"> </span>
-            <span class="letter"> </span>
-            <span class="letter"> </span> -->
+
         </div>
         
         <!-- shows all letters that has been tried and turned out to be wrong -->
@@ -94,21 +88,58 @@
 
     <!-- popup which will appear once all the tries are complted -->
     <!-- it should either show successfull or not successfull -->
-    <div class="popup">
-        <button class="popup-close">x</button>
-        <p></p>
-    </div>
+
+
+    <div class="bgModel">
+   
 
     <!-- popup for login -->
-    <div class="popup loginpop">
+    <form class="popup loginpop">
         <button class="popup-close">x</button>
         <span>Username : </span>
         
-        <input type="text" name="username" id="userName">
+        <input type="text" name="username" id="userName" required>
         <br>
         <span>password : </span>
-        <input type="password" name="" id="password">
-    </div>
-    <script type="text/javascript" src="script.js"></script>
+        <input type="password" name="" id="password" required>
+        <button type="submit" class="submitButton"> Submit</button>
+        <p class="signupLink">Create new account ?</p>
+    </form>
+
+        <form class="popup signuppop">
+            <button class="popup-close">x</button>
+
+            <span>First name : </span>
+            <input type="text" name="firstName" id="fname" required>
+            <br>
+
+            <span>Last name : </span>
+            <input type="text" name="lastName" id="lname" required>
+            <br>
+
+            <span>E-Mail : </span>
+            <input type="email" name="Email" id="email" required>
+            <br>
+
+            <span>Username : </span>
+            <input type="text" name="username" id="UserName" required>
+            <br>
+
+            <span>password : </span>
+            <input type="password" name="Passw" id="passworddec" required>
+            <br>
+
+            <span>Confirm Password : </span>
+            <input type="password" name="ConfPassw" id="confpassword" required>
+
+            <button type="submit" class="submitButton"> Submit</button>
+            <p class="loginLink">Already have an account ?</p>
+            
+        </form>
+    </div> 
+
+    <button class="stopB">stop</button>
+
+    <script type="module" src="script.js"></script>
 </body>
 </html>

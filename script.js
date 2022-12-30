@@ -1,245 +1,20 @@
 
 
 
-let options = {
-    Countries : ["Afghanisthan","Albania","Algeria","American Samoa","Algeria","Andorra","Angola","Anguilla","Antarctica","Antigua and Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan",
-    "Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei Darussalem","Bulgaria","Burkina Faso","Burundi",
-    "Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central African Republic","Chad","Chile","China","Christmas Island","Cocos Island","Colombia","Comoros","Costa Rica","Croatia","Cuba","Cyprus","Czech Republic",
-    "Denmark","Djibouti","Dominica","Dominican republic","East Timor","Equador","Egypt","El Salvador","Equatorial Guinea","Eritria","Estonia","Ethiopia","Fiji","Finland","France","Gabon","Gambia","Georgia","Ghana","Greece","Greenland",
-    "Hongkong","Hungary","Iceland","India","Indonesia","Iraq","Iran","Ireland","Italy","Japan","Jordan","Jamaica","Kenya","Kuwait","Libya","Malaysia","Mexico","Morocco",
-    "Nepal","Netherlands","Nigeria","Norway","Oman","Pakistan","Panama","Peru","Potugal","Qatar","Romania","Russia","Turkey","United States","United Kingdom","Vietnam","Yemen","Zambia"] ,
+import { options } from "./database.js";
 
-    Animals : ["Aardvark",
-    "Albatross",
-    "Alligator",
-    "Alpaca",
-    "Ant",
-    "Anteater",
-    "Antelope",
-    "Ape",
-    "Armadillo",
-    "Donkey",
-    "Baboon",
-    "Badger",
-    "Barracuda",
-    "Bat",
-    "Bear",
-    "Beaver",
-    "Bee",
-    "Bison",
-    "Boar",
-    "Buffalo",
-    "Butterfly",
-    "Camel",
-    "Capybara",
-    "Caribou",
-    "Cassowary",
-    "Cat",
-    "Caterpillar",
-    "Cattle",
-    "Chamois",
-    "Cheetah",
-    "Chicken",
-    "Chimpanzee",
-    "Chinchilla",
-    "Chough",
-    "Clam",
-    "Cobra",
-    "Cockroach",
-    "Cod",
-    "Cormorant",
-    "Coyote",
-    "Crab",
-    "Crane",
-    "Crocodile",
-    "Crow",
-    "Curlew",
-    "Deer",
-    "Dinosaur",
-    "Dog",
-    "Dogfish",
-    "Dolphin",
-    "Dotterel",
-    "Dove",
-    "Dragonfly",
-    "Duck",
-    "Dugong",
-    "Dunlin",
-    "Eagle",
-    "Echidna",
-    "Eel",
-    "Eland",
-    "Elephant",
-    "Elk",
-    "Emu",
-    "Falcon",
-    "Ferret",
-    "Finch",
-    "Fish",
-    "Flamingo",
-    "Fly",
-    "Fox",
-    "Frog",
-    "Gaur",
-    "Gazelle",
-    "Gerbil",
-    "Giraffe",
-    "Gnat",
-    "Gnu",
-    "Goat",
-    "Goldfinch",
-    "Goldfish",
-    "Goose",
-    "Gorilla",
-    "Goshawk",
-    "Grasshopper",
-    "Grouse",
-    "Guanaco",
-    "Gull",
-    "Hamster",
-    "Hare",
-    "Hawk",
-    "Hedgehog",
-    "Heron",
-    "Herring",
-    "Hippopotamus",
-    "Hornet",
-    "Horse",
-    "Human",
-    "Hummingbird",
-    "Hyena",
-    "Ibex",
-    "Ibis",
-    "Jackal",
-    "Jaguar",
-    "Jay",
-    "Jellyfish",
-    "Kangaroo",
-    "Kingfisher",
-    "Koala",
-    "Kookabura",
-    "Kouprey",
-    "Kudu",
-    "Lapwing",
-    "Lark",
-    "Lemur",
-    "Leopard",
-    "Lion",
-    "Llama",
-    "Lobster",
-    "Locust",
-    "Loris",
-    "Louse",
-    "Lyrebird",
-    "Magpie",
-    "Mallard",
-    "Manatee",
-    "Mandrill",
-    "Mantis",
-    "Marten",
-    "Meerkat",
-    "Mink",
-    "Mole",
-    "Mongoose",
-    "Monkey",
-    "Moose",
-    "Mosquito",
-    "Mouse",
-    "Mule",
-    "Narwhal",
-    "Newt",
-    "Nightingale",
-    "Octopus",
-    "Okapi",
-    "Opossum",
-    "Oryx",
-    "Ostrich",
-    "Otter",
-    "Owl",
-    "Oyster",
-    "Panther",
-    "Parrot",
-    "Partridge",
-    "Peafowl",
-    "Pelican",
-    "Penguin",
-    "Pheasant",
-    "Pig",
-    "Pigeon",
-    "Pony",
-    "Porcupine",
-    "Porpoise",
-    "Quail",
-    "Quelea",
-    "Quetzal",
-    "Rabbit",
-    "Raccoon",
-    "Rail",
-    "Ram",
-    "Rat",
-    "Raven",
-    "Red deer",
-    "Red panda",
-    "Reindeer",
-    "Rhinoceros",
-    "Rook",
-    "Salamander",
-    "Salmon",
-    "Sand Dollar",
-    "Sandpiper",
-    "Sardine",
-    "Scorpion",
-    "Seahorse",
-    "Seal",
-    "Shark",
-    "Sheep",
-    "Shrew",
-    "Skunk",
-    "Snail",
-    "Snake",
-    "Sparrow",
-    "Spider",
-    "Spoonbill",
-    "Squid",
-    "Squirrel",
-    "Starling",
-    "Stingray",
-    "Stinkbug",
-    "Stork",
-    "Swallow",
-    "Swan",
-    "Tapir",
-    "Tarsier",
-    "Termite",
-    "Tiger",
-    "Toad",
-    "Trout",
-    "Turkey",
-    "Turtle",
-    "Viper",
-    "Vulture",
-    "Wallaby",
-    "Walrus",
-    "Wasp",
-    "Weasel",
-    "Whale",
-    "Wildcat",
-    "Wolf",
-    "Wolverine",
-    "Wombat",
-    "Woodcock",
-    "Woodpecker",
-    "Worm",
-    "Wren",
-    "Yak",
-    "Zebra"]
-};
+ 
+// readFile('test.txt' ,'utf8' ,(err ,data) =>{
+//     if(err){
+//         console.log(err);
+//         return;
+//     }
+//     console.log(data);
+// })
 
 
 
-
-
-
+ 
 
 // class to select hide the word
 
@@ -349,7 +124,7 @@ class keyboard extends SelectedWord{
 
 
     // taking the input and take into account of the functioning of the analog keyboard
-
+     
     analogPress(){
         document.addEventListener('keypress' , (e)=>{
             if((e.charCode>64 && e.charCode <91) || (e.charCode >96 && e.charCode <123))
@@ -450,23 +225,94 @@ class Game extends updatingReset{
 
 }
 
+
+
+
+// import { workSheet } from "./users.js";
+
+
 class PlayerVerification extends Game {
-    initialisation(){
-        this.winCount = 0;
-        this.failedAttempt = 0;
-        this.userName;
-        this.password;
-        return this;
+    init(){
+        this.logstat = 0;
     }
 
-    login(userName, Password){
-
-    }
+  
     logout(){
 
+    }
+    signupValidation(){
+        const form = document.querySelector('.signuppop');
+        form.addEventListener('submit' , (e) =>{
+        const password = document.querySelector("#passworddec");
+        const confpassword = document.querySelector("#confpassword");
+        if(password.value != confpassword.value)
+        {
+            e.preventDefault();
+            alert("Password does not match");
+        }
+
+        })
+    }
+
+    switchbutton(curnode , newnode){
+        curnode.addEventListener('click' , (e)=>{
+            const par = curnode.parentNode;
+            par.style.display = "none";
+            newnode.style.display = "block";
+        })
+        
+    }
+    closebutton(){
+        const close_buttons = document.querySelectorAll('.popup-close');
+        close_buttons.forEach(button=> {
+            // console.log("y");
+            button.addEventListener('click' , (e)=>{
+                const par = button.parentNode;
+                par.style.display = "none";
+                par.parentNode.style.display = "none";
+            })
+        });
+    }
+    buttonWork(button , box){
+            button.addEventListener('click' ,(e) =>{
+            const par =   box.parentNode;
+            par.style.display = "flex";
+            box.style.display = "block";
+    })
+    this.closebutton();
+}
+    signup(){
+        const signupButton = document.querySelector('.signup-button');
+        const signupBox = document.querySelector('.signuppop');
+        this.buttonWork(signupButton , signupBox);
+        this.signupValidation();
+        const curnode = document.querySelector('.loginLink');
+        const newnode = document.querySelector(".loginpop");
+        this.switchbutton(curnode , newnode);
+        return this;
+    }
+    login(){
+        const loginButton = document.querySelector('.login-button');
+        const loginBox = document.querySelector('.loginpop');
+        this.buttonWork(loginButton , loginBox);
+        // const loginForm = document.querySelector('.loginpop');
+        // loginForm.addEventListener('submit', (e)=>{
+        //     this.logstat = 1;
+        //     e.preventDefault();
+        //     console.log(this.logstat);
+        // })
+        const curnode = document.querySelector('.signupLink');
+        const newnode = document.querySelector(".signuppop");
+        this.switchbutton(curnode , newnode);
+        // this.loginValidation();
+        return this;
     }
 }
 
 
 const newvariable = new PlayerVerification;
-newvariable.initialisation().getWord().digitalPress().analogPress();
+newvariable.init();
+
+newvariable.signup().login();
+
+    newvariable.getWord().digitalPress().analogPress();
