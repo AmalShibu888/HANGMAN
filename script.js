@@ -207,6 +207,7 @@ class PlayerVerification extends updatingReset {
     init(){
         this.logstat = 0;
         this.displaySignupLogin();
+        this.closebutton();
     }
 
   
@@ -236,7 +237,7 @@ class PlayerVerification extends updatingReset {
         const close_buttons = document.querySelectorAll('.popup-close');
         close_buttons.forEach(button=> {
             // console.log("y");
-            button.addEventListener('click' , (e)=>{
+                button.addEventListener('click' , (e)=>{
                 document.addEventListener('keypress' , updateAnalogKeyboard);
                 const par = button.parentNode;
                 par.style.display = "none";
@@ -251,7 +252,6 @@ class PlayerVerification extends updatingReset {
             par.style.display = "flex";
             box.style.display = "block";
     })
-    this.closebutton();
 }
     signup(){
         const signupButton = document.querySelector('.signup-button');
@@ -260,13 +260,14 @@ class PlayerVerification extends updatingReset {
         const newnode = document.querySelector(".loginpop");
         this.buttonWork(signupButton , signupBox);
         this.switchbutton(curnode , newnode);
-        signupBox.addEventListener('submit' ,(e)=>{
+        const signupsubmitbutton = document.querySelector('.signupSubmitButton');
+
+        signupsubmitbutton.addEventListener('click' ,(e)=>{
             if(this.signupValidation())
             {
                 this.displayLogout();
                 signupBox.style.display = "none";
                 signupBox.parentElement.style.display = "none";
-                this.analogKeyboard();
                 this.logout(); 
                 
             }
@@ -286,13 +287,12 @@ class PlayerVerification extends updatingReset {
         const newnode = document.querySelector(".signuppop");
         this.switchbutton(curnode , newnode);
 
-        const loginForm = document.querySelector('.loginpop');
-        loginForm.addEventListener('submit', (e)=>{
+        const loginForm = document.querySelector('.loginSubmitButton');
+        loginForm.addEventListener('click', (e)=>{
             e.preventDefault();
             this.displayLogout();
-            loginForm.style.display = "none";
+            loginForm.parentElement.parentElement.style.display = "none";
             loginForm.parentElement.style.display = "none";
-            this.analogKeyboard();
             this.logout();
         })
         
