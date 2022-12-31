@@ -266,6 +266,7 @@ class PlayerVerification extends updatingReset {
                 this.displayLogout();
                 signupBox.style.display = "none";
                 signupBox.parentElement.style.display = "none";
+                this.analogKeyboard();
                 this.logout(); 
                 
             }
@@ -291,6 +292,7 @@ class PlayerVerification extends updatingReset {
             this.displayLogout();
             loginForm.style.display = "none";
             loginForm.parentElement.style.display = "none";
+            this.analogKeyboard();
             this.logout();
         })
         
