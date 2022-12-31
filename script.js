@@ -30,6 +30,7 @@ class SelectedWord{
         this.hideWord();
         this.noOfRepeat();
         return this;
+        
     }
 
 
@@ -70,15 +71,8 @@ class SelectedWord{
 
 
 
-// upating and functioning both the inbuilt as well as taking input from the analog keyboard
-
 class keyboard extends SelectedWord{
-
-    // taking the input and take into account of the functioning of the digital keyboard
-
-    digitalPress(){
-        
-        // console.log(digitalKeyboard);
+    digitalKeyboard(){
         digitalKeyboard.forEach((e)=>{
             e.addEventListener('click',(x)=>{
                 this.updateKeyboard(e.textContent , e);
@@ -88,59 +82,39 @@ class keyboard extends SelectedWord{
         })
         return this;
     }
-
-
-    // taking the input and take into account of the functioning of the analog keyboard
-     
-    analogPress(){
-        document.addEventListener('keypress' , (e)=>{
-            if((e.charCode>64 && e.charCode <91) || (e.charCode >96 && e.charCode <123))
-            {
-                this.updateKeyboard(e.key , document.querySelector('.' + e.key.toLowerCase()));
-            }
-        })
+    analogKeyboard(){
+        document.addEventListener('keypress' , updateAnalogKeyboard);
+        return this;
     }
 
-
-    
-
-    // update the status of each key in the keyboard and let us know wheather it is pressed or not
     updateKeyboard(s , node){
-        if(this.repeat[s.toLowerCase()] >= 0)
+        if(newvariable.repeat[s.toLowerCase()] >= 0)
         {
-            console.log(this.success);
-            if(this.repeat[s.toLowerCase()] > 0)
+            console.log(newvariable.success);
+            if(newvariable.repeat[s.toLowerCase()] > 0)
             {
                 node.className += " rightLetter";
-                this.updateLetter(s);
+                newvariable.updateLetter(s);
             }
             else
             {
                 node.className += " wrongLetter";
-                this.fail++;
-                this.updateFigure(this.fail);
-                this.updateWrongLetter(s);
+                newvariable.fail++;
+                newvariable.updateFigure(newvariable.fail);
+                newvariable.updateWrongLetter(s);
             }
-            this.repeat[s.toLocaleLowerCase()] = -1;
-            if(this.fail == 6){
+            newvariable.repeat[s.toLocaleLowerCase()] = -1;
+            if(newvariable.fail == 6){
                 alert('Sorry you are hanged !!!!');
-                this.reset();
+                newvariable.reset();
             }
-            else if(this.success == 0){
+            else if(newvariable.success == 0){
                 alert('yay you won !!!!');
-                this.reset();
+                newvariable.reset();
             }
         }
     }
-
-
-    
-
-
-    
 }
-
-
 // updating the figure the analog keyboard and the wrong letters slots with each press
 class updatingReset extends keyboard{
 
@@ -223,22 +197,16 @@ class updatingReset extends keyboard{
     }
 }
 
-class Game extends updatingReset{
-
-    // function for getting a random word from the database
-    
-
-}
-
 
 
 
 // import { workSheet } from "./users.js";
 
 
-class PlayerVerification extends Game {
+class PlayerVerification extends updatingReset {
     init(){
         this.logstat = 0;
+        this.displaySignupLogin();
     }
 
   
@@ -246,17 +214,14 @@ class PlayerVerification extends Game {
 
     }
     signupValidation(){
-        const form = document.querySelector('.signuppop');
-        form.addEventListener('submit' , (e) =>{
         const password = document.querySelector("#passworddec");
         const confpassword = document.querySelector("#confpassword");
         if(password.value != confpassword.value)
         {
-            e.preventDefault();
             alert("Password does not match");
+            return false;
         }
-
-        })
+        return true;
     }
 
     switchbutton(curnode , newnode){
@@ -272,6 +237,7 @@ class PlayerVerification extends Game {
         close_buttons.forEach(button=> {
             // console.log("y");
             button.addEventListener('click' , (e)=>{
+                document.addEventListener('keypress' , updateAnalogKeyboard);
                 const par = button.parentNode;
                 par.style.display = "none";
                 par.parentNode.style.display = "none";
@@ -280,6 +246,7 @@ class PlayerVerification extends Game {
     }
     buttonWork(button , box){
             button.addEventListener('click' ,(e) =>{
+            document.removeEventListener('keypress' , updateAnalogKeyboard);
             const par =   box.parentNode;
             par.style.display = "flex";
             box.style.display = "block";
@@ -289,30 +256,89 @@ class PlayerVerification extends Game {
     signup(){
         const signupButton = document.querySelector('.signup-button');
         const signupBox = document.querySelector('.signuppop');
-        this.buttonWork(signupButton , signupBox);
-        this.signupValidation();
         const curnode = document.querySelector('.loginLink');
         const newnode = document.querySelector(".loginpop");
+        this.buttonWork(signupButton , signupBox);
         this.switchbutton(curnode , newnode);
+        signupBox.addEventListener('submit' ,(e)=>{
+            if(this.signupValidation())
+            {
+                this.displayLogout();
+                signupBox.style.display = "none";
+                signupBox.parentElement.style.display = "none";
+                this.logout(); 
+                
+            }
+            e.preventDefault();
+        })
+        
+        
+        
         return this;
     }
     login(){
         const loginButton = document.querySelector('.login-button');
         const loginBox = document.querySelector('.loginpop');
         this.buttonWork(loginButton , loginBox);
-        // const loginForm = document.querySelector('.loginpop');
-        // loginForm.addEventListener('submit', (e)=>{
-        //     this.logstat = 1;
-        //     e.preventDefault();
-        //     console.log(this.logstat);
-        // })
+
         const curnode = document.querySelector('.signupLink');
         const newnode = document.querySelector(".signuppop");
         this.switchbutton(curnode , newnode);
+
+        const loginForm = document.querySelector('.loginpop');
+        loginForm.addEventListener('submit', (e)=>{
+            e.preventDefault();
+            this.displayLogout();
+            loginForm.style.display = "none";
+            loginForm.parentElement.style.display = "none";
+            this.logout();
+        })
+        
         // this.loginValidation();
         return this;
     }
+
+    logout(){
+        const logoutTriggerButton = document.querySelector('.logout-button');
+        console.log(logoutTriggerButton)
+        logoutTriggerButton.addEventListener('click', (e) =>{
+            this.displaySignupLogin();
+            const loginButton = document.querySelector('.login-button');
+            const loginBox = document.querySelector('.loginpop');
+            this.buttonWork(loginButton , loginBox);
+            const signupButton = document.querySelector('.signup-button');
+            const signupBox = document.querySelector('.signuppop');
+            this.buttonWork(signupButton , signupBox);
+        })
+        return this;
+    }
+
+    displaySignupLogin(){
+        const par = document.querySelector('.loginSignup-button');
+        par.innerHTML = ""
+        let x = document.createElement('span');
+        x.className = "login-button";
+        x.textContent = "Login"
+        par.appendChild(x);
+        x = document.createTextNode('/');
+        par.appendChild(x);
+        x = document.createElement('span');
+        x.className = "signup-button";
+        x.textContent = "Signup"
+        par.appendChild(x);
+    }
+    displayLogout(){
+        const par = document.querySelector('.loginSignup-button');
+        par.innerHTML = ""
+        let x = document.createElement('span');
+        x.className = "logout-button";
+        x.textContent = "Logout"
+        par.appendChild(x);
+    }
 }
+
+
+
 
 
 const newvariable = new PlayerVerification;
@@ -320,4 +346,47 @@ newvariable.init();
 
 newvariable.signup().login();
 
-    newvariable.getWord().digitalPress().analogPress();
+    newvariable.getWord().digitalKeyboard().analogKeyboard();
+
+
+ 
+
+    
+    
+
+    
+
+
+    function updateAnalogKeyboard(e){
+        if((e.charCode>64 && e.charCode <91) || (e.charCode >96 && e.charCode <123))
+        {
+            let s = e.key;
+            let node = document.querySelector('.' + e.key.toLowerCase());
+            if(newvariable.repeat[s.toLowerCase()] >= 0)
+            {
+                console.log(newvariable.success);
+                if(newvariable.repeat[s.toLowerCase()] > 0)
+                {
+                    node.className += " rightLetter";
+                    newvariable.updateLetter(s);
+                }
+                else
+                {
+                    node.className += " wrongLetter";
+                    newvariable.fail++;
+                    newvariable.updateFigure(newvariable.fail);
+                    newvariable.updateWrongLetter(s);
+                }
+                newvariable.repeat[s.toLocaleLowerCase()] = -1;
+                if(newvariable.fail == 6){
+                    alert('Sorry you are hanged !!!!');
+                    newvariable.reset();
+                }
+                else if(newvariable.success == 0){
+                    alert('yay you won !!!!');
+                    newvariable.reset();
+                }
+            }
+        }
+    }
+    // console.log(this.repeat);
