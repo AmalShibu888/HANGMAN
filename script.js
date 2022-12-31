@@ -12,8 +12,8 @@ import { options } from "./database.js";
 //     console.log(data);
 // })
 
-
-
+const wordContainer = document.querySelector('.word');
+const digitalKeyboard = document.querySelectorAll(".alphaKeys");
  
 
 // class to select hide the word
@@ -36,7 +36,7 @@ class SelectedWord{
     // hiding the word and and marking each letter with underline
 
     hideWord(){
-        const el = document.querySelector('.word');
+        
         let s = this.word;
         for(let i = 0;i<s.length;i++){
             const x = document.createElement('span');
@@ -44,10 +44,9 @@ class SelectedWord{
                 x.className = "letter space";
             else
                 x.className = "letter S" + s[i].toLowerCase();
-            el.appendChild(x);
+                wordContainer.appendChild(x);
             
         }
-        return this;
     }
 
 
@@ -62,7 +61,6 @@ class SelectedWord{
         this.fail = 0;
         let spaces = this.word.split(' ').length - 1;
         this.success = this.word.length - spaces;
-        return this;
     }
 
     
@@ -76,6 +74,35 @@ class SelectedWord{
 
 class keyboard extends SelectedWord{
 
+    // taking the input and take into account of the functioning of the digital keyboard
+
+    digitalPress(){
+        
+        // console.log(digitalKeyboard);
+        digitalKeyboard.forEach((e)=>{
+            e.addEventListener('click',(x)=>{
+                this.updateKeyboard(e.textContent , e);
+                
+                
+            })
+        })
+        return this;
+    }
+
+
+    // taking the input and take into account of the functioning of the analog keyboard
+     
+    analogPress(){
+        document.addEventListener('keypress' , (e)=>{
+            if((e.charCode>64 && e.charCode <91) || (e.charCode >96 && e.charCode <123))
+            {
+                this.updateKeyboard(e.key , document.querySelector('.' + e.key.toLowerCase()));
+            }
+        })
+    }
+
+
+    
 
     // update the status of each key in the keyboard and let us know wheather it is pressed or not
     updateKeyboard(s , node){
@@ -107,32 +134,10 @@ class keyboard extends SelectedWord{
     }
 
 
-    // taking the input and take into account of the functioning of the digital keyboard
-
-    digitalPress(){
-        const digitalKeyboard = document.querySelectorAll(".alphaKeys");
-        // console.log(digitalKeyboard);
-        digitalKeyboard.forEach((e)=>{
-            e.addEventListener('click',(x)=>{
-                this.updateKeyboard(e.textContent , e);
-                
-                
-            })
-        })
-        return this;
-    }
+    
 
 
-    // taking the input and take into account of the functioning of the analog keyboard
-     
-    analogPress(){
-        document.addEventListener('keypress' , (e)=>{
-            if((e.charCode>64 && e.charCode <91) || (e.charCode >96 && e.charCode <123))
-            {
-                this.updateKeyboard(e.key , document.querySelector('.' + e.key.toLowerCase()));
-            }
-        })
-    }
+    
 }
 
 
